@@ -1,15 +1,15 @@
 <?php
 
-namespace OwenMelbz\HttpsEnforcement;
+namespace OwenMelbz\BasicAuthEnforcement;
 
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Service provider for HttpsEnforcement
+ * Service provider for BasicAuthEnforcement
  *
  * @author: Owen Melbourne
  */
-class HttpsEnforcementServiceProvider extends ServiceProvider {
+class BasicAuthEnforcementServiceProvider extends ServiceProvider {
 
     /**
      * This will be used to register config & view in
@@ -17,7 +17,7 @@ class HttpsEnforcementServiceProvider extends ServiceProvider {
      *
      * --> Replace with your package name <--
      */
-    protected $packageName = 'https_enforcement';
+    protected $packageName = 'basic_auth_enforcement';
 
     /**
      * Bootstrap the application services.
@@ -31,14 +31,14 @@ class HttpsEnforcementServiceProvider extends ServiceProvider {
             __DIR__.'/../config/config.php' => config_path($this->packageName.'.php'),
         ], 'config');
 
-        if (config('https_enforcement.enforce_https') === true) {
+        if (config('basic_auth_enforcement.enforce_https') === true) {
 
-            HttpsEnforcementAgency::setExceptions(
-                config('https_enforcement.except')
+            BasicAuthEnforcementAgency::setExceptions(
+                config('basic_auth_enforcement.except')
             );
 
             $this->app->make('Illuminate\Contracts\Http\Kernel')->prependMiddleware(
-                HttpsEnforcementAgency::class
+                BasicAuthEnforcementAgency::class
             );
         }
     }

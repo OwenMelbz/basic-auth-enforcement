@@ -2,11 +2,35 @@
 
     /*
     |--------------------------------------------------------------------------
-    | Whether or not to force requests to the https version of your app.
+    | Whether or not to force users to authenticate first.
     |--------------------------------------------------------------------------
     */
 
-    'enforce_https' => env('ENFORCE_HTTPS', false),
+    'enforce_basic_auth' => env('ENFORCE_BASIC_AUTH', false),
+
+    /*
+    |--------------------------------------------------------------------------
+    | What username will be required?
+    |--------------------------------------------------------------------------
+    */
+
+    'basic_auth_user' => env('BASIC_AUTH_USER', null),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Whether or not to force users to authenticate first.
+    |--------------------------------------------------------------------------
+    */
+
+    'basic_auth_password' => env('BASIC_AUTH_PASSWORD', null),
+
+    /*
+    |--------------------------------------------------------------------------
+    | What is the realm name to display to the user?
+    |--------------------------------------------------------------------------
+    */
+
+    'basic_auth_realm' => 'Protected Area',
 
     /*
     |--------------------------------------------------------------------------
@@ -15,5 +39,14 @@
     */
 
    'except' => []
+
+    /*
+    |--------------------------------------------------------------------------
+    | A list of IP addresses which can bypass the auth check.
+    |--------------------------------------------------------------------------
+    */
+
+   'exclude_ips' => []
+
 
 ];

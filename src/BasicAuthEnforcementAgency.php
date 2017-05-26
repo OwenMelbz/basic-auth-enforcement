@@ -1,10 +1,10 @@
 <?php
 
-namespace OwenMelbz\HttpsEnforcement;
+namespace OwenMelbz\BasicAuthEnforcement;
 
 use Closure;
 
-class HttpsEnforcementAgency {
+class BasicAuthEnforcementAgency {
 
     private static $except = [];
 
@@ -17,11 +17,7 @@ class HttpsEnforcementAgency {
      */
     public function handle($request, Closure $next)
     {
-        if (config('https_enforcement.enforce_https') === true) {
-            if (!$request->secure() && !$this->inExceptArray($request)) {
-                return redirect()->secure($request->getRequestUri());
-            }
-        }
+
 
         return $next($request);
     }

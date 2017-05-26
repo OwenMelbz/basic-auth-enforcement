@@ -31,10 +31,14 @@ class BasicAuthEnforcementServiceProvider extends ServiceProvider {
             __DIR__.'/../config/config.php' => config_path($this->packageName.'.php'),
         ], 'config');
 
-        if (config('basic_auth_enforcement.enforce_https') === true) {
+        if (config('basic_auth_enforcement.enforce_basic_auth') === true) {
 
             BasicAuthEnforcementAgency::setExceptions(
                 config('basic_auth_enforcement.except')
+            );
+
+            BasicAuthEnforcementAgency::setIpExclusions(
+                config('basic_auth_enforcement.exclude_ips')
             );
 
             $this->app->make('Illuminate\Contracts\Http\Kernel')->prependMiddleware(

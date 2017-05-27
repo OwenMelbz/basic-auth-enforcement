@@ -12,10 +12,7 @@ use Illuminate\Support\ServiceProvider;
 class BasicAuthEnforcementServiceProvider extends ServiceProvider {
 
     /**
-     * This will be used to register config & view in
-     * your package namespace.
-     *
-     * --> Replace with your package name <--
+     * This will be used to register config & view
      */
     protected $packageName = 'basic_auth_enforcement';
 

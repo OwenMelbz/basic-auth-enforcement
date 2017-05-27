@@ -40,7 +40,7 @@ class BasicAuthEnforcementAgency {
      *
      * @return bool
      */
-    private function isAuthenticated() : bool
+    private function isAuthenticated()
     {
         return
             $this->user == config('basic_auth_enforcement.basic_auth_user') &&
@@ -85,7 +85,7 @@ class BasicAuthEnforcementAgency {
      *
      * @return bool
      */
-    protected function shouldHandleRequest(Request $request) : bool
+    protected function shouldHandleRequest(Request $request)
     {
 
         if (config('basic_auth_enforcement.enforce_basic_auth') !== true) {
@@ -109,7 +109,7 @@ class BasicAuthEnforcementAgency {
      * @param  \Illuminate\Http\Request  $request
      * @return bool
      */
-    protected function inExceptArray($request) : bool
+    protected function inExceptArray($request)
     {
         foreach (self::getExceptions() as $except) {
             if ($except !== '/') {
@@ -124,7 +124,7 @@ class BasicAuthEnforcementAgency {
         return false;
     }
 
-    protected function inIpExclusionArray(string $ip)
+    protected function inIpExclusionArray($ip)
     {
         return in_array($ip, self::getIpExclusions());
     }
@@ -134,12 +134,12 @@ class BasicAuthEnforcementAgency {
         self::$except = $except;
     }
 
-    public static function getExceptions() : array
+    public static function getExceptions()
     {
         return self::$except;
     }
 
-    public static function setIpExclusions(array $exclusions = [])
+    public static function setIpExclusions($exclusions = [])
     {
         self::$ipExclusions = $exclusions;
     }

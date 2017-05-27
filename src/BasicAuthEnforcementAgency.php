@@ -129,7 +129,7 @@ class BasicAuthEnforcementAgency {
         return in_array($ip, self::getIpExclusions());
     }
 
-    public static function setExceptions(array $except = [])
+    public static function setExceptions($except = [])
     {
         self::$except = $except;
     }
@@ -144,7 +144,7 @@ class BasicAuthEnforcementAgency {
         self::$ipExclusions = $exclusions;
     }
 
-    public static function getIpExclusions() : array
+    public static function getIpExclusions()
     {
         return self::$ipExclusions;
     }

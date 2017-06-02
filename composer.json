@@ -16,5 +16,12 @@
         "psr-4": {
             "OwenMelbz\\BasicAuthEnforcement\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OwenMelbz\\BasicAuthEnforcement\\BasicAuthEnforcementServiceProvider"
+            ]
+        }
     }
 }

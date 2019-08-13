@@ -74,6 +74,8 @@ class BasicAuthEnforcementAgency {
             $this->password = $_SERVER['PHP_AUTH_PW'];
         } elseif (isset($_SERVER['HTTP_AUTHORIZATION'])) {
             list($this->user, $this->password) = explode(':', base64_decode(substr($_SERVER['HTTP_AUTHORIZATION'], 6)));
+        } elseif (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION'])) {
+            list($this->user, $this->password) = explode(':', base64_decode(substr($_SERVER['REDIRECT_HTTP_AUTHORIZATION'], 6)));
         } elseif (isset($_SERVER['Authorization'])) {
             list($this->user, $this->password) = explode(':', base64_decode(substr($_SERVER['Authorization'], 6)));
         }

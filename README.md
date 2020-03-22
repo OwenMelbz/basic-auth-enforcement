@@ -1,6 +1,6 @@
-# Laravel 5 & 6 Basic Auth Enforcement
+# Laravel 5+ Basic Auth Enforcement
 
-An automatic piece of middleware for Laravel 5.x, will prompt users accessing your code base (static assets are excempt) to enter a username/password before seeing your application. Very useful for things like staging environments.
+An automatic piece of middleware for Laravel 5+, will prompt users accessing your code base (static assets are excempt) to enter a username/password before seeing your application. Very useful for things like staging environments.
 
 
 ## Usage

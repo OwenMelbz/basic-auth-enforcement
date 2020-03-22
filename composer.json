@@ -1,6 +1,6 @@
 {
     "name": "owenmelbz/basic-auth-enforcement",
-    "description": "Laravel 5 Middleware to enforce basic auth on your application code.",
+    "description": "Laravel 5+ Middleware to enforce basic auth on your application code.",
     "keywords": ["laravel", "basic-authentication"],
     "license": "MIT",
     "authors": [
